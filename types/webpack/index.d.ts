@@ -1322,6 +1322,7 @@ declare namespace webpack {
 
     namespace ICompiler {
         type Handler = (err: Error, stats: Stats) => void;
+        type MultiHandler = (err: Error, stats: compilation.MultiStats) => void;
 
         interface WatchOptions {
             /**
@@ -1417,7 +1418,7 @@ declare namespace webpack {
     }
 
     namespace MultiCompiler {
-        type Handler = ICompiler.Handler;
+        type Handler = ICompiler.MultiHandler;
         type WatchOptions = ICompiler.WatchOptions;
     }
 
